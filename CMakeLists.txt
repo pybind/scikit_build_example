@@ -13,11 +13,18 @@ endif()
 
 set(Python_FIND_IMPLEMENTATIONS CPython PyPy)
 find_package(Python REQUIRED COMPONENTS Interpreter Development)
-list(APPEND CMAKE_PREFIX_PATH "${CMAKE_MODULE_PATH}/../../")
+
+execute_process(COMMAND "${Python_EXECUTABLE}" -m pybind11 --cmakedir
+  OUTPUT_VARIABLE pybind11_DIR
+  OUTPUT_STRIP_TRAILING_WHITESPACE
+  COMMAND_ECHO STDOUT
+  ECHO_OUTPUT_VARIABLE
+  ECHO_ERROR_VARIABLE
+  )
 
 find_package(pybind11 CONFIG REQUIRED)
 
-pybind11_add_library(_core MODULE src/main.cpp)
+pybind11_add_module(_core MODULE src/main.cpp)
 
 target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
