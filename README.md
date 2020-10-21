@@ -10,9 +10,6 @@ python_example
 [actions-pip-badge]:    https://github.com/pybind/scikit_build_example/workflows/Pip/badge.svg
 
 An example project built with [pybind11](https://github.com/pybind/pybind11).
-Warning: this is currently using a pre-release of pybind11 2.6.0, since the
-infrastructure for building pure Python examples has been heavily improved
-there.
 
 Installation
 ------------
