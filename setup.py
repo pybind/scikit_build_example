@@ -15,7 +15,7 @@ except ImportError:
     raise
 
 setup(
-    name="scikit-build-example",
+    name="scikit_build_example",
     version="0.0.1",
     description="a minimal example package (with pybind11)",
     author="Henry Schreiner",
