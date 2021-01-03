@@ -17,9 +17,9 @@ An example project built with [pybind11](https://github.com/pybind/pybind11) and
 [gitter-badge]:            https://badges.gitter.im/pybind/Lobby.svg
 [gitter-link]:             https://gitter.im/pybind/Lobby
 [actions-badge]:           https://github.com/pybind/scikit_build_example/workflows/Tests/badge.svg
-[actions-conda-link]:      https://github.com/pybind/scikit_build_example/actions?query=workflow%3A%22Conda
+[actions-conda-link]:      https://github.com/pybind/scikit_build_example/actions?query=workflow%3AConda
 [actions-conda-badge]:     https://github.com/pybind/scikit_build_example/workflows/Conda/badge.svg
-[actions-pip-link]:        https://github.com/pybind/scikit_build_example/actions?query=workflow%3A%22Pip
+[actions-pip-link]:        https://github.com/pybind/scikit_build_example/actions?query=workflow%3APip
 [actions-pip-badge]:       https://github.com/pybind/scikit_build_example/workflows/Pip/badge.svg
 [actions-wheels-link]:     https://github.com/pybind/scikit_build_example/actions?query=workflow%3AWheels
 [actions-wheels-badge]:    https://github.com/pybind/scikit_build_example/workflows/Wheels/badge.svg
