@@ -22,3 +22,6 @@ pybind11_add_module(_core MODULE src/main.cpp)
 target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
 install(TARGETS _core DESTINATION .)
+
+# file(GLOB_RECURSE PY_FILE_LIST RELATIVE "${CMAKE_CURRENT_SOURCE_DIR}/src" src/*.py)
+# install(FILES ${PY_FILE_LIST} DESTINATION .)
