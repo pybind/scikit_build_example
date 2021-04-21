@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.15...3.18)
+cmake_minimum_required(VERSION 3.18...3.19)
 
 project(scikit_build_example VERSION "0.0.1")
 
@@ -11,8 +11,8 @@ if(SKBUILD)
   set(DUMMY "${PYTHON_VERSION_STRING}")  # Not needed, silences a warning
 endif()
 
-set(Python_FIND_IMPLEMENTATIONS CPython PyPy)  # PyPy requires 3.18
-find_package(Python REQUIRED COMPONENTS Interpreter Development)
+set(Python_FIND_IMPLEMENTATIONS CPython PyPy)
+find_package(Python REQUIRED COMPONENTS Interpreter Development.Module)
 
 # Scikit-Build does not add your site-packages to the search path automatically,
 # so we need to add it _or_ the pybind11 specific directory here.
