@@ -47,7 +47,7 @@ jobs:
       with:
         submodules: true
 
-    - uses: joerick/cibuildwheel@v1.10.0
+    - uses: pypa/cibuildwheel@v1.11.0
       env:
         # Python 2.7 on Windows with workaround not supported by scikit-build
         CIBW_SKIP: cp27-win*
