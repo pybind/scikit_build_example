@@ -27,4 +27,5 @@ setup(
     package_dir={"": "src"},
     cmake_install_dir="src/scikit_build_example",
     include_package_data = True,
+    extras_require={"test": ["pytest"]},
 )
