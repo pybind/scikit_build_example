@@ -1,7 +1,3 @@
-# -*- coding: utf-8 -*-
-
-from __future__ import print_function
-
 import sys
 
 try:
@@ -16,16 +12,16 @@ except ImportError:
 
 from setuptools import find_packages
 
-
 setup(
     name="scikit_build_example",
     version="0.0.1",
     description="a minimal example package (with pybind11)",
     author="Henry Schreiner",
     license="MIT",
-    packages=find_packages(where = 'src'),
+    packages=find_packages(where="src"),
     package_dir={"": "src"},
     cmake_install_dir="src/scikit_build_example",
-    include_package_data = True,
+    include_package_data=True,
     extras_require={"test": ["pytest"]},
+    python_requires=">=3.6",
 )

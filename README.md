@@ -10,8 +10,7 @@ scikit_build_example
 
 
 
-An example project built with [pybind11](https://github.com/pybind/pybind11) and scikit-build.
-
+An example project built with [pybind11](https://github.com/pybind/pybind11) and scikit-build.Python 3.6+ (see older commits for older versions of Python).
 
 
 [gitter-badge]:            https://badges.gitter.im/pybind/Lobby.svg
@@ -27,18 +26,9 @@ An example project built with [pybind11](https://github.com/pybind/pybind11) and
 Installation
 ------------
 
-**On Unix (Linux, macOS)**
+- clone this repository
+- `pip install ./scikit_build_example`
 
- - clone this repository
- - `pip install ./scikit_build_example`
-
-**On Windows**
-
- - For Python 3.5+:
-     - clone this repository
-     - `pip install ./scikit_build_example`
- - For Python 2.7:
-     - Pybind11 + Scikit-Build does not support Python 2.7 on Windows.
 
 CI Examples
 -----------
