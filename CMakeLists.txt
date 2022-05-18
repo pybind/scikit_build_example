@@ -41,3 +41,15 @@ target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
 # `setup.py`, specifies `cmake_install_dir="src/scikit_build_example"`, so that the _core module final location
 # will be `src/scikit_build_example/./`
 install(TARGETS _core DESTINATION .)
+
+#
+# Optional, for pip editable mode, copy the module to src/scikit_build_example/ after each build
+# (so that modifications are usable without a full `pip install`
+#
+add_custom_command(
+    TARGET _core
+    POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy
+    $<TARGET_FILE:_core>
+    ${CMAKE_CURRENT_LIST_DIR}/src/scikit_build_example/$<TARGET_FILE_NAME:_core>
+)
