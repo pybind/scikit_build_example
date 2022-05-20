@@ -4,8 +4,8 @@ project(scikit_build_example VERSION "0.0.1")
 
 #
 # Add pybind11:
-# 1/ Either by adding it to pyproject.toml build-system/requires
-# 2/ Either by adding it as a submodule
+# 1/ Either by adding it to pyproject.toml build-system/requires,
+# 2/ or by adding it as a submodule
 #
 
 # 1/ Here, we find pybind11 via python, using pyproject.toml build-system/requires
