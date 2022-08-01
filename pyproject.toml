@@ -10,7 +10,7 @@ build-backend = "setuptools.build_meta"
 [tool.isort]
 profile = "black"
 
-[tool.cibuidwheel]
+[tool.cibuildwheel]
 test-command = "pytest {project}/tests"
 test-extras = ["test"]
 test-skip = ["*universal2:arm64"]
