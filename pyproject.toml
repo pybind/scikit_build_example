@@ -5,8 +5,12 @@ requires = [
     "cmake>=3.22",
     "scikit-build>=0.15.0",
 ]
-
 build-backend = "setuptools.build_meta"
 
 [tool.isort]
 profile = "black"
+
+[tool.cibuildwheel]
+test-command = "pytest {project}/tests"
+test-extras = ["test"]
+test-skip = ["*universal2:arm64"]
