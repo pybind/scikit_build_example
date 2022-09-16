@@ -14,6 +14,8 @@ if(SKBUILD)
   list(APPEND CMAKE_PREFIX_PATH "${_tmp_dir}")
 endif()
 
+set(PythonLibsNew_FIND_VERSION " ")
+
 # Now we can find pybind11
 find_package(pybind11 CONFIG REQUIRED)
 
