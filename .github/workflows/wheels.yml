@@ -10,6 +10,9 @@ on:
     types:
       - published
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build_sdist:
@@ -44,7 +47,7 @@ jobs:
       with:
         submodules: true
  
-    - uses: pypa/cibuildwheel@v2.10.0
+    - uses: pypa/cibuildwheel@v2.10.1
       env:
         CIBW_ARCHS_MACOS: auto universal2
 
