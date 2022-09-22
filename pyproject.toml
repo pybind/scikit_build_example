@@ -1,7 +1,7 @@
 [build-system]
 requires = [
     "setuptools>=42",
-    "pybind11>=2.10.0",
+    "pybind11 @ git+https://github.com/pybind/pybind11@henryiii/fix/pypy",
     "cmake>=3.22",
     "scikit-build>=0.15.0",
 ]
