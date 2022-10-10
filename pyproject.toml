@@ -15,6 +15,6 @@ test-command = "pytest {project}/tests"
 test-extras = ["test"]
 test-skip = ["*universal2:arm64"]
 build-verbosity = 1
-before-build = [
-    "rm -r _skbuild",
+linux.before-build = [
+    "rm -r _skbuild || echo "No previous run to clean",
 ]
