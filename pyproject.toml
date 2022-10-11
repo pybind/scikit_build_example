@@ -16,5 +16,5 @@ test-extras = ["test"]
 test-skip = ["*universal2:arm64"]
 build-verbosity = 1
 linux.before-build = [
-    "rm -r _skbuild || echo "No previous run to clean",
+    "rm -r _skbuild || echo 'No previous run to clean',
 ]
