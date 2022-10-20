@@ -14,9 +14,6 @@ if(SKBUILD)
   list(APPEND CMAKE_PREFIX_PATH "${_tmp_dir}")
 endif()
 
-
-find_package(PythonInterp 3.6 REQUIRED)
-
 # Now we can find pybind11
 find_package(pybind11 CONFIG REQUIRED)
 
