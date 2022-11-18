@@ -8,5 +8,3 @@ pybind11_add_module(_core MODULE src/main.cpp)
 target_compile_definitions(_core PRIVATE VERSION_INFO=${PROJECT_VERSION})
 
 install(TARGETS _core DESTINATION scikit_build_example)
-install(FILES src/scikit_build_example/__init__.py
-        DESTINATION scikit_build_example)
