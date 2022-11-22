@@ -8,29 +8,28 @@ source:
 build:
   number: 0
   script: |
-    PIP_NO_INDEX=OFF PIP_NO_DEPENDENCIES=OFF PIP_IGNORE_INSTALLED=OFF $PYTHON -m pip install scikit-build-core && $PYTHON -m pip install . -vvv  # [not win]
+    PIP_NO_INDEX=OFF PIP_NO_DEPENDENCIES=OFF PIP_IGNORE_INSTALLED=OFF $PYTHON -m pip install scikit-build-core[pyproject] && $PYTHON -m pip install . -vvv  # [not win]
     set PIP_NO_INDEX=OFF&& set PIP_NO_DEPENDENCIES=OFF&& set PIP_IGNORE_INSTALLED=OFF&& %PYTHON% -m pip install scikit-build-core && set PIP_NO_INDEX=ON&& set PIP_NO_DEPENDENCIES=ON&& set PIP_IGNORE_INSTALLED=ON&& %PYTHON% -m pip install . -vvv  # [win]
 
 requirements:
   build:
-    - python
     - {{ compiler('cxx') }}
     - cmake >=3.18
     - ninja
-    - distlib
-    - exceptiongroup
-    - importlib-resources
     - make
-    - packaging
-    - pathspec
-    - pyproject-metadata
-    - tomli
-    - typing-extensions >=3.7
 
   host:
     - python
     - pip
     - pybind11 >=2.6.0
+    - distlib
+    - exceptiongroup
+    - importlib-resources
+    - packaging
+    - pathspec
+    - pyproject-metadata
+    - tomli
+    - typing-extensions >=3.7
 
   run:
     - python
