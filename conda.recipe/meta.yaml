@@ -14,23 +14,22 @@ build:
 requirements:
   build:
     - {{ compiler('cxx') }}
-
-  host:
-    - python
-    - pip
     - cmake >=3.18
     - ninja
-    - pybind11 >=2.6.0
     - distlib
     - exceptiongroup
     - importlib-resources
     - make
-    - ninja
     - packaging
     - pathspec
     - pyproject-metadata
     - tomli
     - typing-extensions >=3.7
+
+  host:
+    - python
+    - pip
+    - pybind11 >=2.6.0
 
   run:
     - python
