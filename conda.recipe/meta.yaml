@@ -8,9 +8,8 @@ source:
 build:
   number: 0
   script: |
-    PIP_NO_INDEX=OFF PIP_NO_DEPENDENCIES=OFF PIP_IGNORE_INSTALLED=OFF python -m pip install scikit-build-core  # [not win]
-    set PIP_NO_INDEX=OFF&& set PIP_NO_DEPENDENCIES=OFF&& set PIP_IGNORE_INSTALLED=OFF&& python -m pip install scikit-build-core  # [win]
-    python -m pip install . -vvv
+    PIP_NO_INDEX=OFF PIP_NO_DEPENDENCIES=OFF PIP_IGNORE_INSTALLED=OFF python -m pip install scikit-build-core && python -m pip install . -vvv  # [not win]
+    set PIP_NO_INDEX=OFF&& set PIP_NO_DEPENDENCIES=OFF&& set PIP_IGNORE_INSTALLED=OFF&& python -m pip install scikit-build-core && set PIP_NO_INDEX=ON&& set PIP_NO_DEPENDENCIES=ON&& set PIP_IGNORE_INSTALLED=ON&& python -m pip install . -vvv  # [win]
 
 requirements:
   build:
