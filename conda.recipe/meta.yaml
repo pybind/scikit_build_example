@@ -11,16 +11,14 @@ build:
 
 requirements:
   build:
+    - python
     - {{ compiler('cxx') }}
-    - cmake >=3.18
-    - ninja
-    - make
 
   host:
     - python
     - pip
     - scikit-build-core
-    - pybind11 >=2.6.0
+    - pybind11 >=2.10.0
 
   run:
     - python
