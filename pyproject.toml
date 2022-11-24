@@ -2,10 +2,16 @@
 requires = ["scikit-build-core", "pybind11"]
 build-backend = "scikit_build_core.build"
 
+
 [project]
 name = "scikit_build_example"
 version = "0.0.1"
 requires-python = ">=3.7"
+
+
+[tool.scikit-build]
+wheel.expand-macos-universal-tags = true
+
 
 [project.optional-dependencies]
 test = ["pytest"]
