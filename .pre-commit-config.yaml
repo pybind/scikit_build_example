@@ -33,25 +33,12 @@ repos:
   - id: requirements-txt-fixer
   - id: trailing-whitespace
 
-# Black, the code formatter, natively supports pre-commit
-- repo: https://github.com/psf/black
-  rev: 22.10.0
+# Runs Black, pyupgrade, isort, autoflake, blacken-docs
+- repo: https://github.com/Zac-HD/shed
+  rev: 0.10.7
   hooks:
-  - id: black
+  - id: shed
     exclude: ^(docs)
-
-# Sort your imports in a standard form
-- repo: https://github.com/PyCQA/isort
-  rev: 5.10.1
-  hooks:
-  - id: isort
-
-# Upgrade older Python syntax
-- repo: https://github.com/asottile/pyupgrade
-  rev: v3.2.2
-  hooks:
-  - id: pyupgrade
-    args: ["--py37-plus"]
 
 # Changes tabs to spaces
 - repo: https://github.com/Lucas-C/pre-commit-hooks

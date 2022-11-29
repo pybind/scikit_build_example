@@ -10,7 +10,9 @@ scikit_build_example
 
 
 
-An example project built with [pybind11](https://github.com/pybind/pybind11) and scikit-build. Python 3.7+ (see older commits for older versions of Python).
+An example project built with [pybind11](https://github.com/pybind/pybind11)
+and scikit-build-core. Python 3.7+ (see older commits for older versions of
+Python).
 
 
 [gitter-badge]:            https://badges.gitter.im/pybind/Lobby.svg
@@ -49,6 +51,7 @@ Test call
 
 ```python
 import scikit_build_example
+
 scikit_build_example.add(1, 2)
 ```
 
