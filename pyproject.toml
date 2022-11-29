@@ -8,13 +8,12 @@ name = "scikit_build_example"
 version = "0.0.1"
 requires-python = ">=3.7"
 
+[project.optional-dependencies]
+test = ["pytest"]
+
 
 [tool.scikit-build]
 wheel.expand-macos-universal-tags = true
-
-
-[project.optional-dependencies]
-test = ["pytest"]
 
 
 [tool.cibuildwheel]
