@@ -7,19 +7,18 @@ source:
 
 build:
   number: 0
-  script: python -m pip install . -vvv
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
+    - python
     - {{ compiler('cxx') }}
 
   host:
     - python
     - pip
-    - pybind11 >=2.6.0
-    - scikit-build
-    - cmake >=3.18
-    - ninja
+    - scikit-build-core
+    - pybind11 >=2.10.0
 
   run:
     - python

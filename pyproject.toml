@@ -1,16 +1,28 @@
 [build-system]
-requires = [
-    "setuptools>=42",
-    "pybind11>=2.10.1",
-    "cmake>=3.22",
-    "scikit-build>=0.15.0",
-]
-build-backend = "setuptools.build_meta"
+requires = ["scikit-build-core", "pybind11"]
+build-backend = "scikit_build_core.build"
+
+
+[project]
+name = "scikit_build_example"
+version = "0.0.1"
+requires-python = ">=3.7"
+
+
+[tool.scikit-build]
+wheel.expand-macos-universal-tags = true
+
+
+[project.optional-dependencies]
+test = ["pytest"]
+
 
 [tool.isort]
 profile = "black"
+
 
 [tool.cibuildwheel]
 test-command = "pytest {project}/tests"
 test-extras = ["test"]
 test-skip = ["*universal2:arm64"]
+build-verbosity = 1
