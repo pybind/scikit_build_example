@@ -35,7 +35,7 @@ repos:
 
 # Runs Black, pyupgrade, isort, autoflake, blacken-docs
 - repo: https://github.com/Zac-HD/shed
-  rev: 0.10.7
+  rev: 0.10.8
   hooks:
   - id: shed
     exclude: ^(docs)
