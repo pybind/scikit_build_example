@@ -12,7 +12,7 @@ concurrency:
 
 jobs:
   build-wasm-emscripten:
-    name: Pyodide wheel
+    name: Pyodide
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v3
