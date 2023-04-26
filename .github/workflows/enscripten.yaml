@@ -42,7 +42,9 @@ jobs:
         actions-cache-folder: emsdk-cache
 
     - name: Build
-      run: CFLAGS=-fexceptions LDFLAGS=-fexceptions pyodide build
+      run: |
+        CFLAGS=-fexceptions LDFLAGS=-fexceptions pyodide build
+        unzip -l dist/*.whl
 
     - uses: actions/setup-node@v3
       with:
