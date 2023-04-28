@@ -1,5 +1,5 @@
 [build-system]
-requires = ["scikit-build-core>=0.2.1", "pybind11"]
+requires = ["scikit-build-core>=0.3.3", "pybind11"]
 build-backend = "scikit_build_core.build"
 
 
@@ -29,6 +29,14 @@ test = ["pytest"]
 
 [tool.scikit-build]
 wheel.expand-macos-universal-tags = true
+
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = ["-ra", "--showlocals", "--strict-markers", "--strict-config"]
+xfail_strict = true
+filterwarnings = ["error"]
+testpaths = ["tests"]
 
 
 [tool.cibuildwheel]
