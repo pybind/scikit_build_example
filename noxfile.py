@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import nox
 
 nox.options.sessions = ["lint", "tests"]
