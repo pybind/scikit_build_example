@@ -30,9 +30,7 @@ jobs:
     - name: Compute emsdk version
       id: compute-emsdk-version
       run: |
-        # Prepare xbuild environment (side-effect)
-        pyodide config list
-        # Save EMSDK version
+        pyodide xbuildenv install --download
         EMSCRIPTEN_VERSION=$(pyodide config get emscripten_version)
         echo "emsdk-version=$EMSCRIPTEN_VERSION" >> $GITHUB_OUTPUT
 
@@ -41,10 +39,13 @@ jobs:
         version: ${{ steps.compute-emsdk-version.outputs.emsdk-version }}
         actions-cache-folder: emsdk-cache
 
+    # A future version of pyodide may switch to -fwasm-exceptions
     - name: Build
-      run: |
-        CFLAGS=-fexceptions LDFLAGS=-fexceptions pyodide build
-        unzip -l dist/*.whl
+      run: CFLAGS=-fexceptions LDFLAGS=-fexceptions pyodide build
+      
+    - uses: actions/upload-artifact@v3
+      with:
+        path: dist/*.whl
 
     - uses: actions/setup-node@v3
       with:
