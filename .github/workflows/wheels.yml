@@ -51,6 +51,7 @@ jobs:
       env:
         CIBW_ARCHS_MACOS: universal2
         CIBW_ARCHS_WINDOWS: auto ARM64
+        CIBW_PRERELEASE_PYTHONS: true
 
     - name: Verify clean directory
       run: git diff --exit-code
