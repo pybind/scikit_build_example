@@ -10,6 +10,9 @@ on:
     types:
       - published
 
+env:
+  FORCE_COLOR: 3
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
@@ -52,6 +55,8 @@ jobs:
         CIBW_ARCHS_MACOS: universal2
         CIBW_ARCHS_WINDOWS: auto ARM64
         CIBW_PRERELEASE_PYTHONS: true
+        SKBUILD_BUILD_VERBOSE: 1
+        CIBW_BUILD_VERBOSITY: 1
 
     - name: Verify clean directory
       run: git diff --exit-code
