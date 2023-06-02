@@ -10,6 +10,9 @@ on:
     types:
       - published
 
+env:
+  FORCE_COLOR: 3
+
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
