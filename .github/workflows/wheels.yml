@@ -50,11 +50,10 @@ jobs:
       with:
         submodules: true
 
-    - uses: pypa/cibuildwheel@v2.14
+    - uses: pypa/cibuildwheel@v2.15
       env:
         CIBW_ARCHS_MACOS: universal2
         CIBW_ARCHS_WINDOWS: auto ARM64
-        CIBW_PRERELEASE_PYTHONS: true
 
     - name: Verify clean directory
       run: git diff --exit-code
