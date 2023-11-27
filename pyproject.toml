@@ -21,6 +21,7 @@ classifiers = [
   "Programming Language :: Python :: 3.9",
   "Programming Language :: Python :: 3.10",
   "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
 ]
 
 [project.optional-dependencies]
@@ -35,9 +36,9 @@ wheel.expand-macos-universal-tags = true
 minversion = "6.0"
 addopts = ["-ra", "--showlocals", "--strict-markers", "--strict-config"]
 xfail_strict = true
+log_cli_level = "INFO"
 filterwarnings = [
   "error",
-  "ignore:(ast.Str|Attribute s|ast.NameConstant|ast.Num) is deprecated:DeprecationWarning:_pytest",  # Python 3.12
 ]
 testpaths = ["tests"]
 
@@ -77,9 +78,10 @@ extend-select = [
   "PD",          # pandas-vet
 ]
 ignore = [
-  "PLR",    # Design related pylint codes
+  "PLR09",    # Too many X
+  "PLR2004",  # Magic comparison
 ]
 isort.required-imports = ["from __future__ import annotations"]
 
-[tool.ruff.per-file-ignores]
+[tool.ruff.lint.per-file-ignores]
 "tests/**" = ["T20"]
