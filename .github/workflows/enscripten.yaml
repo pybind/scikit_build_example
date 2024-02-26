@@ -20,7 +20,7 @@ jobs:
         submodules: true
         fetch-depth: 0
 
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: "3.11"
 
@@ -34,7 +34,7 @@ jobs:
         EMSCRIPTEN_VERSION=$(pyodide config get emscripten_version)
         echo "emsdk-version=$EMSCRIPTEN_VERSION" >> $GITHUB_OUTPUT
 
-    - uses: mymindstorm/setup-emsdk@v13
+    - uses: mymindstorm/setup-emsdk@v14
       with:
         version: ${{ steps.compute-emsdk-version.outputs.emsdk-version }}
         actions-cache-folder: emsdk-cache
@@ -43,7 +43,7 @@ jobs:
     - name: Build
       run: CFLAGS=-fexceptions LDFLAGS=-fexceptions pyodide build
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
         path: dist/*.whl
 
