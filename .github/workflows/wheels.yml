@@ -32,8 +32,9 @@ jobs:
     - name: Check metadata
       run: pipx run twine check dist/*
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
+        name: cibw-sdist
         path: dist/*.tar.gz
 
 
@@ -50,7 +51,7 @@ jobs:
       with:
         submodules: true
 
-    - uses: pypa/cibuildwheel@v2.16
+    - uses: pypa/cibuildwheel@v2.17
       env:
         CIBW_ARCHS_MACOS: universal2
         CIBW_ARCHS_WINDOWS: auto ARM64
@@ -59,8 +60,9 @@ jobs:
       run: git diff --exit-code
       shell: bash
 
-    - uses: actions/upload-artifact@v3
+    - uses: actions/upload-artifact@v4
       with:
+        name: cibw-wheels-${{ matrix.os }}
         path: wheelhouse/*.whl
 
 
@@ -74,13 +76,14 @@ jobs:
       id-token: write
 
     steps:
-    - uses: actions/setup-python@v4
+    - uses: actions/setup-python@v5
       with:
         python-version: "3.x"
 
-    - uses: actions/download-artifact@v3
+    - uses: actions/download-artifact@v4
       with:
-        name: artifact
+        pattern: cibw-*
+        merge-multiple: true
         path: dist
 
     - uses: pypa/gh-action-pypi-publish@release/v1
