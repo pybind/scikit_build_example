@@ -1,1 +1,1 @@
-.. automodule:: python_example
+.. automodule:: scikit_build_example
