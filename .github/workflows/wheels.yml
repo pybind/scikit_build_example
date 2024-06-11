@@ -51,6 +51,8 @@ jobs:
       with:
         submodules: true
 
+    - uses: yezz123/setup-uv@v4
+
     - uses: pypa/cibuildwheel@v2.19
       env:
         CIBW_PRERELEASE_PYTHONS: true
