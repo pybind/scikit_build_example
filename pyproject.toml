@@ -39,6 +39,7 @@ xfail_strict = true
 log_cli_level = "INFO"
 filterwarnings = [
   "error",
+  "ignore::pytest.PytestCacheWarning",
 ]
 testpaths = ["tests"]
 
