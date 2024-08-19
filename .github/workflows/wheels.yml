@@ -53,7 +53,7 @@ jobs:
 
     - uses: yezz123/setup-uv@v4
 
-    - uses: pypa/cibuildwheel@v2.19
+    - uses: pypa/cibuildwheel@v2.20
       env:
         CIBW_PRERELEASE_PYTHONS: true
         CIBW_ARCHS_WINDOWS: auto ARM64
