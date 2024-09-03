@@ -7,7 +7,9 @@ source:
 
 build:
   number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  script:
+    - unset CMAKE_GENERATOR && {{ PYTHON }} -m pip install . -vv  # [not win]
+    - {{ PYTHON }} -m pip install . -vv  # [win]
 
 requirements:
   build:
@@ -15,6 +17,8 @@ requirements:
     - {{ compiler('cxx') }}
 
   host:
+    - cmake
+    - ninja
     - python
     - pip
     - scikit-build-core
