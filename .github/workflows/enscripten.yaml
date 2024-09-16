@@ -24,7 +24,7 @@ jobs:
       with:
         python-version: "3.12"
 
-    - uses: pypa/cibuildwheel@v2.20
+    - uses: pypa/cibuildwheel@v2.21
       env:
         CIBW_PLATFORM: pyodide
 
