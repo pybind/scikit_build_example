@@ -9,7 +9,7 @@
 
 
 An example project built with [pybind11][] and [scikit-build-core][]. Python
-3.7+ (see older commits for older versions of Python using [scikit-build (classic)][]).
+3.9+ (see older commits for 3.7+, or even older versions of Python using [scikit-build (classic)][]).
 
 
 [gitter-badge]:            https://badges.gitter.im/pybind/Lobby.svg
