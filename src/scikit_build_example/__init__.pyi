@@ -17,4 +17,3 @@ def add(i: int, j: int) -> int:
 
     Some other explanation about the add function.
     """
-    ...
