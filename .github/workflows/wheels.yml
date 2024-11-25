@@ -55,7 +55,7 @@ jobs:
 
     - uses: pypa/cibuildwheel@v2.22
       env:
-        CIBW_ENABLE: cypython-prerelease
+        CIBW_ENABLE: cpython-prerelease
         CIBW_ARCHS_WINDOWS: auto ARM64
 
     - name: Verify clean directory
