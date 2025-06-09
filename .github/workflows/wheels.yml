@@ -51,7 +51,7 @@ jobs:
       with:
         submodules: true
 
-    - uses: astral-sh/setup-uv@v5
+    - uses: astral-sh/setup-uv@v6
 
     - uses: pypa/cibuildwheel@v2.23
       env:
