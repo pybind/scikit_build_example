@@ -51,9 +51,9 @@ jobs:
       with:
         submodules: true
 
-    - uses: astral-sh/setup-uv@v5
+    - uses: astral-sh/setup-uv@v6
 
-    - uses: pypa/cibuildwheel@v2.23
+    - uses: pypa/cibuildwheel@v3.0
       env:
         CIBW_ENABLE: cpython-prerelease
         CIBW_ARCHS_WINDOWS: auto ARM64
