@@ -50,7 +50,7 @@ testpaths = ["tests"]
 
 [tool.cibuildwheel]
 build-frontend = "build[uv]"
-enable = ["cpython-prerelease", "pypy"]
+enable = ["pypy"]
 test-command = "python -m pytest tests"
 test-sources = ["pyproject.toml", "tests"]
 test-groups = ["test"]
