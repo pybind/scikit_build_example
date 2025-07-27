@@ -51,6 +51,7 @@ testpaths = ["tests"]
 [tool.cibuildwheel]
 build-frontend = "build[uv]"
 enable = ["pypy"]
+skip = ["cp314-ios*"] # broken upstream
 test-command = "python -m pytest tests"
 test-sources = ["pyproject.toml", "tests"]
 test-groups = ["test"]
