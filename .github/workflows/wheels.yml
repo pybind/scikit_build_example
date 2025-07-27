@@ -53,7 +53,7 @@ jobs:
 
     - uses: astral-sh/setup-uv@v5
 
-    - uses: pypa/cibuildwheel@v3.0.0rc1
+    - uses: pypa/cibuildwheel@v3.1
 
     - name: Verify clean directory
       run: git diff --exit-code
