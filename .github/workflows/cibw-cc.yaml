@@ -14,6 +14,7 @@ concurrency:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         include:
           - platform: android
@@ -33,6 +34,9 @@ jobs:
     - uses: actions/checkout@v4
 
     - uses: actions/setup-python@v5
+
+    - if: matrix.platform == 'ios'
+      run: brew upgrade cmake
 
     - uses: pypa/cibuildwheel@v3.1
       env:
