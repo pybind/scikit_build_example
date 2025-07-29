@@ -25,10 +25,10 @@ jobs:
             archs: all
           - platform: pyodide
             os: ubuntu-latest
-            
+
     name: ${{ matrix.platform }} on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    
+
     steps:
     - uses: actions/checkout@v4
 
