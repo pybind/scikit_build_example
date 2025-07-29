@@ -4,16 +4,31 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-    - master
+      - master
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+
 jobs:
-  build-pyodide:
-    name: Pyodide
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      matrix:
+        include:
+          - platform: android
+            os: ubuntu-latest
+          - platform: android
+            os: macos-latest
+          - platform: ios
+            os: macos-latest
+            archs: all
+          - platform: pyodide
+            os: ubuntu-latest
+            
+    name: ${{ matrix.platform }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    
     steps:
     - uses: actions/checkout@v4
 
@@ -21,29 +36,10 @@ jobs:
 
     - uses: pypa/cibuildwheel@v3.1
       env:
-        CIBW_PLATFORM: pyodide
+        CIBW_PLATFORM: ${{ matrix.platform }}
+        CIBW_ARCHS: ${{ matrix.archs }}
 
     - uses: actions/upload-artifact@v4
       with:
-        name: wheels-pyodide
-        path: dist/*.whl
-
-  build-ios:
-    name: iOS
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    - uses: actions/setup-python@v5
-
-    - run: brew upgrade cmake
-
-    - uses: pypa/cibuildwheel@v3.1
-      env:
-        CIBW_PLATFORM: ios
-        CIBW_ARCHS: all
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: wheels-ios
+        name: wheels-${{ matrix.platform }}-${{ matrix.os }}
         path: dist/*.whl
