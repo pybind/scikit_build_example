@@ -64,6 +64,7 @@ xbuild-tools = ["cmake", "ninja"]
 
 [tool.cibuildwheel.android]
 build-frontend = "build"
+environment.ANDROID_API_LEVEL = "24"
 
 [tool.ruff.lint]
 extend-select = [
