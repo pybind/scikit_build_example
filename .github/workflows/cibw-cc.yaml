@@ -38,7 +38,7 @@ jobs:
     - if: matrix.platform == 'ios'
       run: brew upgrade cmake
 
-    - uses: pypa/cibuildwheel@v3.1
+    - uses: pypa/cibuildwheel@63bdd4f043a77f1bd23b2ba9376972b6dc7b4779
       env:
         CIBW_PLATFORM: ${{ matrix.platform }}
         CIBW_ARCHS: ${{ matrix.archs || 'auto' }}
