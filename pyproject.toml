@@ -62,6 +62,10 @@ build-frontend = {name = "build", args = ["--exports", "whole_archive"]}
 build-frontend = "build"
 xbuild-tools = ["cmake", "ninja"]
 
+[tool.cibuildwheel.android]
+build-frontend = "build"
+environment.ANDROID_API_LEVEL = "24"
+
 [tool.ruff.lint]
 extend-select = [
   "B",           # flake8-bugbear

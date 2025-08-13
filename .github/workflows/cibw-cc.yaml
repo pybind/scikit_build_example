@@ -4,46 +4,62 @@ on:
   workflow_dispatch:
   pull_request:
     branches:
-    - master
+      - master
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+
 jobs:
-  build-pyodide:
-    name: Pyodide
-    runs-on: ubuntu-latest
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - platform: android
+            os: macos-13
+          - platform: android
+            os: macos-latest
+          - platform: ios
+            os: macos-latest
+            archs: all
+          - platform: pyodide
+            os: ubuntu-latest
+
+    name: ${{ matrix.platform }} on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+
     steps:
     - uses: actions/checkout@v4
 
     - uses: actions/setup-python@v5
 
-    - uses: pypa/cibuildwheel@v3.1
+    - if: matrix.platform == 'ios'
+      run: brew upgrade cmake
+
+    # GitHub Actions can't currently run the Android emulator on macOS.
+    - name: Skip Android tests on macOS
+      if: runner.os == 'macOS'
+      run: echo "CIBW_TEST_COMMAND=" >> "$GITHUB_ENV"
+
+    # https://github.blog/changelog/2024-04-02-github-actions-hardware-accelerated-android-virtualization-now-available/
+    - name: Enable KVM for Android emulator
+      if: runner.os == 'Linux' && matrix.platform == 'android'
+      run: |
+        echo 'KERNEL=="kvm", GROUP="kvm", MODE="0666", OPTIONS+="static_node=kvm"' | sudo tee /etc/udev/rules.d/99-kvm4all.rules
+        sudo udevadm control --reload-rules
+        sudo udevadm trigger --name-match=kvm
+
+    - if: matrix.platform == 'android'
+      run: pipx install patchelf
+
+    - uses: pypa/cibuildwheel@63bdd4f043a77f1bd23b2ba9376972b6dc7b4779
       env:
-        CIBW_PLATFORM: pyodide
+        CIBW_PLATFORM: ${{ matrix.platform }}
+        CIBW_ARCHS: ${{ matrix.archs || 'auto' }}
 
     - uses: actions/upload-artifact@v4
       with:
-        name: wheels-pyodide
-        path: dist/*.whl
-
-  build-ios:
-    name: iOS
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v4
-
-    - uses: actions/setup-python@v5
-
-    - run: brew upgrade cmake
-
-    - uses: pypa/cibuildwheel@v3.1
-      env:
-        CIBW_PLATFORM: ios
-        CIBW_ARCHS: all
-
-    - uses: actions/upload-artifact@v4
-      with:
-        name: wheels-ios
+        name: wheels-${{ matrix.platform }}-${{ matrix.os }}
         path: dist/*.whl
