@@ -59,7 +59,7 @@ jobs:
         CIBW_PLATFORM: ${{ matrix.platform }}
         CIBW_ARCHS: ${{ matrix.archs || 'auto' }}
 
-    - uses: actions/upload-artifact@v4
+    - uses: actions/upload-artifact@v5
       with:
         name: wheels-${{ matrix.platform }}-${{ matrix.os }}
         path: dist/*.whl
