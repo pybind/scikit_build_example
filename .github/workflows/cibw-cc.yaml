@@ -54,7 +54,7 @@ jobs:
     - if: matrix.platform == 'android'
       run: pipx install patchelf
 
-    - uses: pypa/cibuildwheel@v3.4
+    - uses: pypa/cibuildwheel@v4.0
       env:
         CIBW_PLATFORM: ${{ matrix.platform }}
         CIBW_ARCHS: ${{ matrix.archs || 'auto' }}

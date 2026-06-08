@@ -51,9 +51,9 @@ jobs:
       with:
         submodules: true
 
-    - uses: astral-sh/setup-uv@v8.1.0
+    - uses: astral-sh/setup-uv@v8.2.0
 
-    - uses: pypa/cibuildwheel@v3.4
+    - uses: pypa/cibuildwheel@v4.0
 
     - name: Verify clean directory
       run: git diff --exit-code
