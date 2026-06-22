@@ -22,7 +22,7 @@ jobs:
     name: Build SDist
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         submodules: true
 
@@ -47,13 +47,13 @@ jobs:
         os: [ubuntu-latest, macos-15-intel, macos-latest, windows-latest, ubuntu-24.04-arm, windows-11-arm]
 
     steps:
-    - uses: actions/checkout@v6
+    - uses: actions/checkout@v7
       with:
         submodules: true
 
-    - uses: astral-sh/setup-uv@v8.1.0
+    - uses: astral-sh/setup-uv@v8.2.0
 
-    - uses: pypa/cibuildwheel@v3.4
+    - uses: pypa/cibuildwheel@v4.1
 
     - name: Verify clean directory
       run: git diff --exit-code
