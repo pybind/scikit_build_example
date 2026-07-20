@@ -31,14 +31,16 @@ jobs:
           python-version: ${{ matrix.python-version }}
           channels: conda-forge
 
+      # conda-build is a conda plugin, so it must live in the base env next to
+      # conda itself (setup-miniconda activates a separate "test" env).
       - name: Prepare
-        run: conda install conda-build conda-verify pytest
+        run: conda install -n base conda-build
 
       - name: Build
-        run: conda build conda.recipe
+        run: conda build conda.recipe --python=${{ matrix.python-version }}
 
       - name: Install
-        run: conda install -c ${CONDA_PREFIX}/conda-bld/ scikit_build_example
+        run: conda install --use-local scikit_build_example pytest
 
       - name: Test
         run: pytest tests
